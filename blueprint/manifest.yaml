@@ -16,7 +16,7 @@
 #   KAFKA_TOPIC
 
 package:
-  name: messagehub-trigger
+  name: messagehub-trigger-b
   version: 1.0
   license: Apache-2.0
   namespace: _
@@ -44,4 +44,4 @@ package:
   rules:
       log-message-rule:
         trigger: message-received-trigger
-        action: messagehub-trigger/process-message
+        action: messagehub-trigger-b/process-message
