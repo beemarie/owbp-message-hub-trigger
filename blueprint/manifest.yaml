@@ -32,7 +32,7 @@ package:
     process-message:
       location: actions/process-message.js
   triggers:
-    message-received-trigger:
+    message-received-trigger-b:
       source: openwhisk-messagehub/messageHubFeed
       inputs:
         kafka_brokers_sasl: $KAFKA_BROKERS
@@ -43,5 +43,5 @@ package:
         kafka_admin_url: $KAFKA_ADMIN_URL
   rules:
       log-message-rule:
-        trigger: message-received-trigger
+        trigger: message-received-trigger-b
         action: messagehub-trigger-b/process-message
