@@ -6,7 +6,7 @@
 #   Package:  messagehub-trigger
 #   Action:   messagehub-trigger/process-message.js
 #   Sequence: messagehub-trigger/process-message-messagehub-sequence
-#   Trigger:  message-received-trigger
+#   Trigger:  message-received-trigger-b
 #   Rule:     log-message-rule
 
 # This manifest file reads the following env. variables:
