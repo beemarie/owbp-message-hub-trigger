@@ -6,7 +6,7 @@
 #   Package:  messagehub-trigger
 #   Action:   messagehub-trigger/process-message.js
 #   Sequence: messagehub-trigger/process-message-messagehub-sequence
-#   Trigger:  message-received-trigger-b
+#   Trigger:  message-received-trigger
 #   Rule:     log-message-rule
 
 # This manifest file reads the following env. variables:
@@ -16,7 +16,7 @@
 #   KAFKA_TOPIC
 
 package:
-  name: messagehub-trigger-b
+  name: messagehub-trigger
   version: 1.0
   license: Apache-2.0
   namespace: _
@@ -30,18 +30,14 @@ package:
         kafka_admin_url: $KAFKA_ADMIN_URL
   actions:
     process-message:
-      location: actions/process-message.js
+      function: actions/process-message.php
   triggers:
-    received-message:
+    message-received-trigger:
       source: openwhisk-messagehub/messageHubFeed
       inputs:
-        kafka_brokers_sasl: $KAFKA_BROKERS
-        user: $MESSAGEHUB_USER
-        password: $MESSAGEHUB_PASS
         isJSONData: true
         topic: $KAFKA_TOPIC
-        kafka_admin_url: $KAFKA_ADMIN_URL
   rules:
       log-message-rule:
-        trigger: received-message
-        action: messagehub-trigger-b/process-message
+        trigger: message-received-trigger
+        action: process-message
